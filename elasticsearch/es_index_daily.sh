@@ -14,7 +14,7 @@ index_keywords=("application" "nginx_frontend" "nginx_backend")
 
 # print current segments info
 echo '########## start ########' >> ${es_index_log}
-echo `date +"%Y-%m-%d"` >> ${es_index_log}
+echo `date +"%Y-%m-%d %H:%M:%S"` >> ${es_index_log}
 curl -s "${es_url}_cat/nodes?v&h=name,segments.count,segments.memory,segments.index_writer_memory,segments.version_map_memory,segments.fixed_bitset_memory" >> ${es_index_log}
 
 # close indexes
@@ -32,3 +32,4 @@ sleep 100
 done
 
 curl -s "${es_url}_cat/nodes?v&h=name,segments.count,segments.memory,segments.index_writer_memory,segments.version_map_memory,segments.fixed_bitset_memory" >> ${es_index_log}
+echo `date +"%Y-%m-%d %H:%M:%S"` >> ${es_index_log}
